@@ -1,19 +1,50 @@
-﻿using UnityEngine;
+﻿using GameConfigs;
+using UnityEngine;
+using UnityEngine.UI;
+using Zenject;
 
 namespace Managers
 {
     public class GameManager : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        [SerializeField] private GameManagerConfig gameManagerConfig = default;
+        [SerializeField] private Button newGameButton = default;
+        [SerializeField] private Button restartButton = default;
         
+        private PoolManager _poolManager = default;
+        private Player _player = default;
+        private LevelManager _levelManager = default;
+        private UIManager _uiManager = default;
+
+        [Inject]
+        public void Setup(PoolManager poolManager, Player player, LevelManager levelManager,UIManager uiManager)
+        {
+            _poolManager = poolManager;
+            _player = player;
+            _uiManager = uiManager;
+            _levelManager = levelManager;
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Start()
         {
-        
+            newGameButton.onClick.AddListener(OnGameStartConfirmed);
+            restartButton.onClick.AddListener(OnGameOverConfirmed);
+            
+            _poolManager.PoolConfig = gameManagerConfig.PoolConfig;
+            _poolManager.InitGamePools();
+            _player.Initialize();
+            _uiManager.SetPageState(UIManager.PageState.StartGame);
+            _levelManager.Initialize();
+        }
+
+        private void OnGameStartConfirmed()
+        {
+            _player.GameConfirm(true);  
+        }
+
+        private void OnGameOverConfirmed()
+        {
+            _player.GameConfirm(false); 
         }
     }
 }

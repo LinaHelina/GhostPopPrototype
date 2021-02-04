@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc93f3e90bc2bf04aaad413181d40382, type: 3}
   m_Name: GameManagerConfig
   m_EditorClassIdentifier: 
-  _poolConfig: {fileID: 0}
+  _poolConfig: {fileID: 11400000, guid: f20733b46e84a5d46aa3368abec0c6ab, type: 2}

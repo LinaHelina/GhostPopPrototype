@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2df4746d6cca64f8a600201512f1cb, type: 3}
   m_Name: PoolConfig
   m_EditorClassIdentifier: 
-  _gamePoolsData: []
+  _gamePoolsData:
+  - _tag: Map_Tile_1
+    _poolItem: {fileID: 76374637752662643, guid: 607605235e636a941ad88b4dde9f84e8,
+      type: 3}
+    _count: 8
+  - _tag: Map_Tile_2
+    _poolItem: {fileID: 6285496416107000135, guid: ee42366aa464ce143beb8a60642d4764,
+      type: 3}
+    _count: 8
+  - _tag: Map_Tile_3
+    _poolItem: {fileID: -7969937270187850595, guid: 6bb70c5752de66f4887064af60fb0972,
+      type: 3}
+    _count: 8

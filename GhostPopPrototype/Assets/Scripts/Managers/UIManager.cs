@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Managers
 {
@@ -11,14 +12,15 @@ namespace Managers
         [SerializeField] private Button newGameButton = default;
         [SerializeField] private Button restartButton = default;
         
-        private enum PageState
+        
+        public enum PageState
         {
             None,
             StartGame,
             GameOver
         }
     
-        private void SetPageState(PageState state)
+        public void SetPageState(PageState state)
         {
             switch (state)
             {

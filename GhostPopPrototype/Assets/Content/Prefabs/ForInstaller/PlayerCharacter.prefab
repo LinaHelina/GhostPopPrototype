@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2676685850863746307}
+  - component: {fileID: 1501660362986303995}
+  - component: {fileID: 4928790414658378217}
+  - component: {fileID: 3955091409926449388}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -25,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5636494558871633258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_Children:
   - {fileID: 4183243464530222043}
   - {fileID: 8993638934960252304}
@@ -33,6 +36,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1501660362986303995
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5636494558871633258}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &4928790414658378217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5636494558871633258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44fbfdbae71709d459425893a81ca37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterConfig: {fileID: 11400000, guid: 43d4f30a639e4464aa6086a00a306e50, type: 2}
+  playerRb: {fileID: 1501660362986303995}
+--- !u!114 &3955091409926449388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5636494558871633258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdad006a5d4930844a02896960b213cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lanternConfig: {fileID: 11400000, guid: 735266b350437fa4b84ce07f84428562, type: 2}
+  lanternTransform: {fileID: 6954883867665001845}
 --- !u!1001 &2064276651117596400
 PrefabInstance:
   m_ObjectHideFlags: 0
