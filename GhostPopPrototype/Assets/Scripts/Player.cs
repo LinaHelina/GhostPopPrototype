@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private CharacterConfig characterConfig = default;
     [SerializeField] private Rigidbody playerRb = default;
-    [SerializeField] private Button _button = default;
+    [SerializeField] private Button button = default;
 
     private bool _isMoving = default;
     

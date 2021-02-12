@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 144eeae845fe9ad4bb7ff8bcad668a1d, type: 3}
-  m_Name: LevelConfig
+  m_Script: {fileID: 11500000, guid: 79e2415f8f445f44d9bc698f91bb420f, type: 3}
+  m_Name: EnemyConfig
   m_EditorClassIdentifier: 
-  chunkSize: 13
-  mapLength: 4
-  chunkPrefabAmount: 3
-  startZone: 12
+  lifeTime: 3
+  speed: 2

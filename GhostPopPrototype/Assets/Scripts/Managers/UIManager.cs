@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -11,6 +12,8 @@ namespace Managers
         [SerializeField] private GameObject gameStartPage = default;
         [SerializeField] private Button newGameButton = default;
         [SerializeField] private Button restartButton = default;
+        [SerializeField] private TextMeshProUGUI lanternChargeText = default;
+        private Lantern _lantern = default;
         
         
         public enum PageState
@@ -19,7 +22,13 @@ namespace Managers
             StartGame,
             GameOver
         }
-    
+
+        [Inject]
+        public void Setup(Lantern lantern)
+        {
+            _lantern = lantern;
+        }
+
         public void SetPageState(PageState state)
         {
             switch (state)
@@ -41,8 +50,10 @@ namespace Managers
 
         private void Start()
         {
+            SetPageState(UIManager.PageState.StartGame);
             newGameButton.onClick.AddListener(NewGameConfirmed);
             restartButton.onClick.AddListener(RestartGameConfirmed);
+            _lantern.OnChargeUpdate += UpdateCurrentCharge;
         }
 
 
@@ -55,5 +66,11 @@ namespace Managers
         {
             SetPageState(PageState.StartGame);
         }
+        
+        private void UpdateCurrentCharge(int charge)
+        {
+            lanternChargeText.text = "Charge: " + charge;
+        }
+        
     }
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CharacterConfig
   m_EditorClassIdentifier: 
   startCoinAmount: 0
-  speed: 2
+  speed: 1.5
   startPosition: {x: 2, y: 0, z: 0}

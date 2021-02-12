@@ -8,12 +8,13 @@ public class GameInstaller : MonoInstaller<GameInstaller>
     [SerializeField] private LevelManager levelManager = default;
     [SerializeField] private UIManager uiManager = default;
     [SerializeField] private Player player = default;
+    [SerializeField] private Lantern lantern = default;
 
     public override void InstallBindings()
     {
 
-        //Container.Bind<Player>().FromInstance(player).AsCached();
-        Container.Bind<Player>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<Lantern>().FromInstance(lantern).AsSingle();
+        Container.Bind<Player>().FromInstance(player).AsCached();
         Container.Bind<UIManager>().FromInstance(uiManager).AsCached();
 
         Container.BindInstance(poolManager).AsSingle();

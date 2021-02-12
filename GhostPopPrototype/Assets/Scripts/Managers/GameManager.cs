@@ -12,14 +12,16 @@ namespace Managers
         [SerializeField] private Button restartButton = default;
         
         private PoolManager _poolManager = default;
+        private Lantern _lantern = default;
         private Player _player = default;
         private LevelManager _levelManager = default;
         private UIManager _uiManager = default;
 
         [Inject]
-        public void Setup(PoolManager poolManager, Player player, LevelManager levelManager,UIManager uiManager)
+        public void Setup(PoolManager poolManager,Lantern lantern, Player player, LevelManager levelManager,UIManager uiManager)
         {
             _poolManager = poolManager;
+            _lantern = lantern;
             _player = player;
             _uiManager = uiManager;
             _levelManager = levelManager;
@@ -32,8 +34,9 @@ namespace Managers
             
             _poolManager.PoolConfig = gameManagerConfig.PoolConfig;
             _poolManager.InitGamePools();
+            _lantern.Initialize();
             _player.Initialize();
-            _uiManager.SetPageState(UIManager.PageState.StartGame);
+            //_uiManager.Initialize();
             _levelManager.Initialize();
         }
 

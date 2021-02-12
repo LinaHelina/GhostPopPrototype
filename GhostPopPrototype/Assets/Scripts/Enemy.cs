@@ -1,18 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using GameConfigs;
+using GamePool;
 using UnityEngine;
+using Zenject;
 
-public class Enemy : MonoBehaviour
+public class Enemy : PoolItem
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private EnemyConfig enemyConfig = default;
 
-    // Update is called once per frame
-    void Update()
+    private Player _player = default;
+
+    [Inject]
+    private void Setup(Player player)
     {
-        
+        _player = player;
     }
+    
+    // private void Update()
+    // {
+    //     float step = enemyConfig.Speed * Time.deltaTime;
+    //     transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, step);
+    // }
 }

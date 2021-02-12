@@ -25,3 +25,15 @@ MonoBehaviour:
     _poolItem: {fileID: -7969937270187850595, guid: 6bb70c5752de66f4887064af60fb0972,
       type: 3}
     _count: 8
+  - _tag: Coin_Bonus
+    _poolItem: {fileID: 3224306713385349110, guid: 0363a3c2c502eea45a48ef1daf0b19b6,
+      type: 3}
+    _count: 4
+  - _tag: Time_Bonus
+    _poolItem: {fileID: -1533144885839335504, guid: ed6c64952d7d7804f9d3c228676fa5b2,
+      type: 3}
+    _count: 4
+  - _tag: Enemy
+    _poolItem: {fileID: 8756790663042571299, guid: 38283d0f2f9588c4a90e9a27a86fdbdc,
+      type: 3}
+    _count: 10
