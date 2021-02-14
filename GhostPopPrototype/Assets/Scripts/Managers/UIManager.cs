@@ -13,6 +13,9 @@ namespace Managers
         [SerializeField] private Button newGameButton = default;
         [SerializeField] private Button restartButton = default;
         [SerializeField] private TextMeshProUGUI lanternChargeText = default;
+        [SerializeField] private Button buyBatteryButton = default;
+        [SerializeField] private Button buyDamageButton = default;
+        [SerializeField] private Button buyLengthButton = default;
         private Lantern _lantern = default;
         
         

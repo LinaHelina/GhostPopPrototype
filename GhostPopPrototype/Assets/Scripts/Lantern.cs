@@ -8,16 +8,26 @@ public class Lantern : MonoBehaviour
 {
     [SerializeField] private LanternConfig lanternConfig = default;
     [SerializeField] private Transform lanternTransform = default;
-    [SerializeField] private TextMeshPro lanternCharge = default;
-    private int _charge = default;
+
+    private float _charge = default;
     private sbyte _isRecharging = default;
+    private int _coinsAmount = default;
+    
+    private float _currentBatteryCharge = default;
+    private int _currentDamage = default;
+    private float _currentLanternLength = default;
+    
     
     public event  Action<int> OnChargeUpdate = delegate {  };
-
+    
     private void Start()
     {
         _charge = lanternConfig.StartCharge;
+        _currentBatteryCharge = lanternConfig.StartCharge;
+        _currentDamage = lanternConfig.StartDamage;
+        _currentLanternLength = lanternConfig.StartLength;
         _isRecharging = 0;
+        _coinsAmount = 0;
     }
 
     public void Initialize()
@@ -54,10 +64,31 @@ public class Lantern : MonoBehaviour
 
     private void Update()
     {
-        _charge +=  _isRecharging;
-        OnChargeUpdate.Invoke(_charge);
+        _charge += _isRecharging*0.05f;
+        OnChargeUpdate.Invoke((int)_charge);
         Debug.Log(_charge);
-        if (_charge > 99 || _charge < 1)
+        if (_charge > 100 || _charge < 0)
             _isRecharging = 0;
+    }
+
+    private void BuyImprovement(string improvementName)
+    {
+        switch (improvementName)
+        {
+            case "batteryCharge":
+                _currentBatteryCharge += lanternConfig.ChargeIncrease;
+                _coinsAmount -= lanternConfig.ChargeCost;
+                break;
+            case "lanternDamage":
+                _currentDamage += lanternConfig.DamageIncrease;
+                _coinsAmount -= lanternConfig.DamageCost;
+                break;
+            case "lanternLength":
+                _currentLanternLength += lanternConfig.LengthIncrease;
+                _coinsAmount -= lanternConfig.LengthCost;
+                break;
+            
+                
+        }
     }
 }

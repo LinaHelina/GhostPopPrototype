@@ -5,7 +5,7 @@ namespace GameConfigs
     [CreateAssetMenu(menuName = "Configs/Lantern Config",fileName = "LanternConfig")]
     public class LanternConfig : ScriptableObject
     {
-        [SerializeField] private int startCharge = default;
+        [SerializeField] private float startCharge = default;
         [SerializeField] private int chargeCost = default;
         [SerializeField] private int chargeIncrease = default;
 
@@ -18,7 +18,7 @@ namespace GameConfigs
         [SerializeField] private float lengthIncrease = default;
 
 
-        public int StartCharge => startCharge;
+        public float StartCharge => startCharge;
         public int ChargeCost => chargeCost;
         public int ChargeIncrease => chargeIncrease;
 
