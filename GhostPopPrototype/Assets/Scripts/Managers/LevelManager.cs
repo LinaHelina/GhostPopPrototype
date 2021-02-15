@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using GameConfigs;
 using GamePool;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 using Random = UnityEngine.Random;
 
@@ -14,20 +15,23 @@ namespace Managers
         
         private PoolManager _poolManager = default;
         private Player _player = default;
+        private Lantern _lantern = default;
         private float _spawn = default;
         private List<PoolItem> _chunksList = default;
         
         
         [Inject]
-        public void Setup(PoolManager poolManager, Player player)
+        public void Setup(PoolManager poolManager,Lantern lantern, Player player)
         {
             _poolManager = poolManager;
+            _lantern = lantern;
             _player = player;
         }
 
         private void Start()
         {
             _chunksList = new List<PoolItem>();
+ 
         }
 
         public void Initialize()
@@ -73,5 +77,6 @@ namespace Managers
                 _chunksList.RemoveAt(0);
             }
         }
+
     }
 }

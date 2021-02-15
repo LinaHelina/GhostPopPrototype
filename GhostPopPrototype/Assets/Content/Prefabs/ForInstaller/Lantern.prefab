@@ -47,7 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lanternConfig: {fileID: 11400000, guid: 735266b350437fa4b84ce07f84428562, type: 2}
   lanternTransform: {fileID: 4342547561163094489}
-  lanternCharge: {fileID: 0}
+  buyBatteryButton: {fileID: 0}
+  buyDamageButton: {fileID: 0}
+  buyLengthButton: {fileID: 0}
 --- !u!1001 &4342547561162939663
 PrefabInstance:
   m_ObjectHideFlags: 0

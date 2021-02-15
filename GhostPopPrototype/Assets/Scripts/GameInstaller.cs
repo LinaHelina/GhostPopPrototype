@@ -13,7 +13,7 @@ public class GameInstaller : MonoInstaller<GameInstaller>
     public override void InstallBindings()
     {
 
-        Container.Bind<Lantern>().FromInstance(lantern).AsSingle();
+        Container.Bind<Lantern>().FromInstance(lantern).AsCached();
         Container.Bind<Player>().FromInstance(player).AsCached();
         Container.Bind<UIManager>().FromInstance(uiManager).AsCached();
 

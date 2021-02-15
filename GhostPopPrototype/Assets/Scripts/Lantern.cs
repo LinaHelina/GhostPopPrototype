@@ -3,12 +3,16 @@ using GameConfigs;
 using Lean.Touch;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Lantern : MonoBehaviour
 {
     [SerializeField] private LanternConfig lanternConfig = default;
     [SerializeField] private Transform lanternTransform = default;
-
+    [SerializeField] private Button buyBatteryButton = default;
+    [SerializeField] private Button buyDamageButton = default;
+    [SerializeField] private Button buyLengthButton = default;
+    
     private float _charge = default;
     private sbyte _isRecharging = default;
     private int _coinsAmount = default;
@@ -19,15 +23,20 @@ public class Lantern : MonoBehaviour
     
     
     public event  Action<int> OnChargeUpdate = delegate {  };
+    public event Action<int> OnButtonChargeUpdate = delegate(int i) {  };
     
     private void Start()
     {
         _charge = lanternConfig.StartCharge;
+        buyBatteryButton.onClick.AddListener(() => BuyImprovement("BatteryCharge"));
+        buyDamageButton.onClick.AddListener(() => BuyImprovement("LanternDamage"));
+        buyLengthButton.onClick.AddListener(() => BuyImprovement("LanternLength"));
         _currentBatteryCharge = lanternConfig.StartCharge;
         _currentDamage = lanternConfig.StartDamage;
         _currentLanternLength = lanternConfig.StartLength;
         _isRecharging = 0;
         _coinsAmount = 0;
+        OnButtonChargeUpdate += UpdateButton;
     }
 
     public void Initialize()
@@ -60,14 +69,15 @@ public class Lantern : MonoBehaviour
             lanternTransform.gameObject.SetActive(false);   
             _isRecharging = 1;
         }
+ 
     }
 
     private void Update()
     {
         _charge += _isRecharging*0.05f;
         OnChargeUpdate.Invoke((int)_charge);
-        Debug.Log(_charge);
-        if (_charge > 100 || _charge < 0)
+       // Debug.Log(_charge);
+        if (_charge > _currentBatteryCharge || _charge < 0)
             _isRecharging = 0;
     }
 
@@ -75,20 +85,26 @@ public class Lantern : MonoBehaviour
     {
         switch (improvementName)
         {
-            case "batteryCharge":
+            case "BatteryCharge":
                 _currentBatteryCharge += lanternConfig.ChargeIncrease;
                 _coinsAmount -= lanternConfig.ChargeCost;
+                OnButtonChargeUpdate.Invoke((int)_currentBatteryCharge);
                 break;
-            case "lanternDamage":
+            case "LanternDamage":
                 _currentDamage += lanternConfig.DamageIncrease;
                 _coinsAmount -= lanternConfig.DamageCost;
                 break;
-            case "lanternLength":
+            case "LanternLength":
                 _currentLanternLength += lanternConfig.LengthIncrease;
                 _coinsAmount -= lanternConfig.LengthCost;
                 break;
             
-                
         }
+    }
+    
+    
+    private void UpdateButton(int num)
+    {
+        Debug.Log(num);
     }
 }

@@ -843,6 +843,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5946686418867407999, guid: 8d99667fd4c4d094abafa868ea813b3b,
         type: 3}
+      propertyPath: buyDamageButton
+      value: 
+      objectReference: {fileID: 1157940114}
+    - target: {fileID: 5946686418867407999, guid: 8d99667fd4c4d094abafa868ea813b3b,
+        type: 3}
+      propertyPath: buyLengthButton
+      value: 
+      objectReference: {fileID: 2089581808}
+    - target: {fileID: 5946686418867407999, guid: 8d99667fd4c4d094abafa868ea813b3b,
+        type: 3}
+      propertyPath: buyBatteryButton
+      value: 
+      objectReference: {fileID: 246354801}
+    - target: {fileID: 5946686418867407999, guid: 8d99667fd4c4d094abafa868ea813b3b,
+        type: 3}
       propertyPath: levelManagerConfig
       value: 
       objectReference: {fileID: 11400000, guid: 4643c3b5cb1757340a177bc0273b91cf,
@@ -3150,6 +3165,9 @@ MonoBehaviour:
   newGameButton: {fileID: 1038840172}
   restartButton: {fileID: 1290411596}
   lanternChargeText: {fileID: 1385149842}
+  buyBatteryButtonText: {fileID: 0}
+  buyDamageButtonText: {fileID: 0}
+  buyLengthButtonText: {fileID: 0}
 --- !u!1001 &1770868039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3157,6 +3175,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 202171560483067618, guid: d61aae92a02f79245947a624ab9beabc,
+        type: 3}
+      propertyPath: buyDamageButton
+      value: 
+      objectReference: {fileID: 1157940114}
+    - target: {fileID: 202171560483067618, guid: d61aae92a02f79245947a624ab9beabc,
+        type: 3}
+      propertyPath: buyLengthButton
+      value: 
+      objectReference: {fileID: 2089581808}
+    - target: {fileID: 202171560483067618, guid: d61aae92a02f79245947a624ab9beabc,
+        type: 3}
+      propertyPath: buyBatteryButton
+      value: 
+      objectReference: {fileID: 246354801}
     - target: {fileID: 2676685850863746307, guid: d61aae92a02f79245947a624ab9beabc,
         type: 3}
       propertyPath: m_RootOrder

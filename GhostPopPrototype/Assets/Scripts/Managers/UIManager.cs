@@ -13,13 +13,13 @@ namespace Managers
         [SerializeField] private Button newGameButton = default;
         [SerializeField] private Button restartButton = default;
         [SerializeField] private TextMeshProUGUI lanternChargeText = default;
-        [SerializeField] private Button buyBatteryButton = default;
-        [SerializeField] private Button buyDamageButton = default;
-        [SerializeField] private Button buyLengthButton = default;
+        [SerializeField] private TextMeshProUGUI buyBatteryButtonText = default;
+        [SerializeField] private TextMeshProUGUI buyDamageButtonText = default;
+        [SerializeField] private TextMeshProUGUI buyLengthButtonText = default;
         private Lantern _lantern = default;
-        
-        
-        public enum PageState
+
+
+        private enum PageState
         {
             None,
             StartGame,
@@ -32,7 +32,7 @@ namespace Managers
             _lantern = lantern;
         }
 
-        public void SetPageState(PageState state)
+        private void SetPageState(PageState state)
         {
             switch (state)
             {
@@ -55,8 +55,10 @@ namespace Managers
         {
             SetPageState(UIManager.PageState.StartGame);
             newGameButton.onClick.AddListener(NewGameConfirmed);
-            restartButton.onClick.AddListener(RestartGameConfirmed);
             _lantern.OnChargeUpdate += UpdateCurrentCharge;
+            _lantern.OnButtonChargeUpdate += UpdateButton;
+            restartButton.onClick.AddListener(RestartGameConfirmed);
+            
         }
 
 
@@ -74,6 +76,10 @@ namespace Managers
         {
             lanternChargeText.text = "Charge: " + charge;
         }
-        
+
+        private void UpdateButton(int num)
+        {
+            buyBatteryButtonText.text = "Battery: " + num;
+        }
     }
 }
